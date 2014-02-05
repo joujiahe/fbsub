@@ -32,7 +32,7 @@ fbsub.authenticate(function(err) {
 });
 ```
 
-## Subscription List
+## Check Subscription List
 ```html
 https://graph.facebook.com/<APP_ID>/subscriptions?access_token=<ACCESS_TOKEN>
 ```
