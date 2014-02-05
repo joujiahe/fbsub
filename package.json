@@ -1,0 +1,17 @@
+{
+  "name": "fbsub",
+  "description": "Facebook Realtime Update API for NodeJS",
+  "version": "0.0.2",
+  "author": {
+    "name": "Jia-He Jou",
+    "email": "joujiahe@gmail.com"
+  },
+  "readme": "Facebook Realtime Update API for NodeJS\n\n## Initialization\n```js\nvar fbsub = require('fbsub');\n\nfbsub.init({\n    appId: <APP_ID>,\n    appSecret: <APP_SECRET>,\n    verifyToken: <VERIFY_TOKEN>,\n    callbackUrl: <CALLBACK_URL>,\n});\n```\n\n## Usage\n```js\nfbsub.authenticate(function(err) {\n    if (err == null) {\n        fbsub.subscribe(object, fields, function(err) {\n            if (err == null) {\n                // ...\n                console.log('fbsub subscribe succeed!');\n            } else {\n                // ...\n                console.log('fbsub subscribe failed...');\n            }\n        });\n    } else {\n        // ...\n        console.log('fbsub auth failed...');\n    }\n});\n```",
+  "readmeFilename": "README.md",
+  "_id": "fbsub@0.0.1",
+  "dist": {
+    "shasum": "62a61993b7d1368851140508a4cada90079f70a7"
+  },
+  "_from": "fbsub@0.0.1",
+  "_resolved": "https://registry.npmjs.org/fbsub/-/fbsub-0.0.1.tgz"
+}

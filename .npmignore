@@ -1,0 +1,4 @@
+.git*
+docs/
+examples/
+.DS_Store
