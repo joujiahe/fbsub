@@ -1,6 +1,7 @@
 Facebook Realtime Update API for NodeJS
 
-## Initialization
+## Usage
+#### Initialization
 ```js
 var fbsub = require('fbsub');
 
@@ -12,7 +13,7 @@ fbsub.init({
 });
 ```
 
-## Authentication and Subscription for Realtime Update
+#### Authentication and Subscription for Realtime Update
 ```js
 fbsub.authenticate(function(err) {
     if (err == null) {
@@ -32,7 +33,7 @@ fbsub.authenticate(function(err) {
 });
 ```
 
-## Provide API for Facebook Verification Callback and Realtime Push
+#### Provide API for Facebook Verification Callback and Realtime Push
 ```js
 // Sample code is based on express@3.4.8
 // 
