@@ -30,7 +30,12 @@ fbsub.authenticate(function(err) {
         console.log('fbsub auth failed...');
     }
 });
+```
 
+## Provide API for Facebook Verification Callback and Realtime Push
+```js
+// Sample code is based on express@3.4.8
+// 
 // Verification for Facebook Request
 app.get(<CALLBACK_PATH>, fbsub.verify);
 
