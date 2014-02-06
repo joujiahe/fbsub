@@ -12,7 +12,7 @@ fbsub.init({
 });
 ```
 
-## Usage
+## Authentication and Subscription for Realtime Update
 ```js
 fbsub.authenticate(function(err) {
     if (err == null) {
@@ -29,6 +29,14 @@ fbsub.authenticate(function(err) {
         // ...
         console.log('fbsub auth failed...');
     }
+});
+
+// Verification for Facebook Request
+app.get(<CALLBACK_PATH>, fbsub.verify);
+
+// Handle Facebook Push for Realtime Update
+app.post(<CALLBACK_PATH>, function(req, res) {
+    // ...
 });
 ```
 
