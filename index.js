@@ -84,11 +84,12 @@ function verify(req, res) {
     var query = url_parts.query;
 
     if (query.hasOwnProperty('hub.verify_token')) {
-        if (query['hub.verify_token'] === config.verifyToken) {
-            console.log('Verified!')
-            res.send(query['hub.challenge']);
+        if (query['hub.verify_token'] !== config.verifyToken) {
+            return res.send(404);
         }
+        console.log('Verified!')
     }
+    return res.send(query['hub.challenge']);
 }
 
 module.exports = {
