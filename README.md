@@ -46,7 +46,17 @@ app.post(<CALLBACK_PATH>, function(req, res) {
 });
 ```
 
-## Check Subscription List
+#### Get a list of all current subscriptions
+```js
+fbsub.getSubscriptions(console.log);
+```
+
+#### Get the access token once authorized
+```js
+var accessToken = fbsub.getAccessToken();
+```
+
+## How to manually check Subscription List
 ```html
 https://graph.facebook.com/<APP_ID>/subscriptions?access_token=<ACCESS_TOKEN>
 ```
