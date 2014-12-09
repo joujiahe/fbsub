@@ -1,10 +1,11 @@
 {
   "name": "fbsub",
   "description": "Facebook Realtime Update API for NodeJS",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "author": "Jia-He Jou <joujiahe@gmail.com>",
   "contributors": [
-    "Jia-He Jou <joujiahe@gmail.com>"
+    "Jia-He Jou <joujiahe@gmail.com>",
+    "Alex Parker <alexofparker@gmail.com>"
   ],
   "keywords": [
     "facebook",
