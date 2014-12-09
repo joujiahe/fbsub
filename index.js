@@ -86,7 +86,7 @@ function verify(req, res) {
             console.log('Invalid token.');
             return res.send(404);
         }
-        console.log('Verified!');
+        console.log('Verified');
         return res.send(query['hub.challenge']);
     }
     return res.send(query['hub.challenge']);
