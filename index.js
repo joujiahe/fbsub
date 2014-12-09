@@ -97,10 +97,28 @@ function getAccessToken() {
     return config.accessToken;
 }
 
+// Retrieve current subscriptions
+function getSubscriptions(callback) {
+    https.get({
+        host: FACEBOOK_GRAPH_URL,
+        path: '/' +config.appId + '?access_token=' + getAccessToken()
+    }, function(res) {
+        var data = "";
+        res.on('data', function(chunk) {
+            data += chunk;
+        }).on('end', function() {
+            callback(JSON.parse(data));
+        }).on('error', function(e) {
+            callback(e.message);
+        });
+    });
+}
+
 module.exports = {
     init: init,
     authenticate: authenticate,
     subscribe: subscribe,
     verify: verify,
-    getAccessToken: getAccessToken
+    getAccessToken: getAccessToken,
+    getSubscriptions: getSubscriptions
 };
