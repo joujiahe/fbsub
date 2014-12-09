@@ -34,7 +34,6 @@ function authenticate(callback) {
             if (data.toString().indexOf("error") === -1) {
                 var accessToken = data.split("=")[1];
                 config.accessToken = accessToken;
-
                 callback(null);
             } else {
                 callback(data);
@@ -82,12 +81,13 @@ function verify(req, res) {
     console.log('Get verification request...')
     var url_parts = url.parse(req.url,true);
     var query = url_parts.query;
-
     if (query.hasOwnProperty('hub.verify_token')) {
         if (query['hub.verify_token'] !== config.verifyToken) {
+            console.log('Invalid token.');
             return res.send(404);
         }
-        console.log('Verified!')
+        console.log('Verified!');
+        return res.send(query['hub.challenge']);
     }
     return res.send(query['hub.challenge']);
 }
