@@ -92,9 +92,15 @@ function verify(req, res) {
     return res.send(query['hub.challenge']);
 }
 
+// Retrieve the access token.
+function getAccessToken() {
+    return config.accessToken;
+}
+
 module.exports = {
     init: init,
     authenticate: authenticate,
     subscribe: subscribe,
-    verify: verify
+    verify: verify,
+    getAccessToken: getAccessToken
 };
