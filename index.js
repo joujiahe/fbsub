@@ -76,6 +76,26 @@ function subscribe(object, fields, callback) {
     req.end();
 }
 
+// Unsubscribe specified object and fields
+function unSubscribe(callback) {
+    var req = https.request({
+        host: FACEBOOK_GRAPH_URL,
+        port: 443,
+        path: '/' + config.appId + '/subscriptions?access_token=' + config.accessToken,
+        method: 'DELETE'
+    }, function(res) {
+        var data = "";
+        res.on('data', function(chunk) {
+            data += chunk;
+        }).on('end', function() {
+            callback(JSON.parse(data));
+        }).on('error', function(e) {
+            callback(e.message);
+        });
+    });
+    req.end();
+}
+
 // Verify handler for Facebook
 function verify(req, res) {
     console.log('Get verification request...')
@@ -118,6 +138,7 @@ module.exports = {
     init: init,
     authenticate: authenticate,
     subscribe: subscribe,
+    unSubscribe: unSubscribe,
     verify: verify,
     getAccessToken: getAccessToken,
     getSubscriptions: getSubscriptions
