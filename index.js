@@ -45,11 +45,11 @@ function authenticate(callback) {
 }
 
 // Subscribe specified object and fields
-function subscribe(object, fields, callback) {
+function subscribe(object, fields, callback, scope) {
     var req = https.request({
         host: FACEBOOK_GRAPH_URL,
         port: 443,
-        path: '/' + config.appId + '/subscriptions?access_token=' + config.accessToken,
+        path: '/' + (typeof scope !== 'undefined' ? scope : config.appId) + '/subscriptions?access_token=' + config.accessToken,
         method: 'POST'
     }, function(res) {
         var data = "";
@@ -77,11 +77,11 @@ function subscribe(object, fields, callback) {
 }
 
 // Unsubscribe specified object and fields
-function unSubscribe(callback) {
+function unSubscribe(callback, scope) {
     var req = https.request({
         host: FACEBOOK_GRAPH_URL,
         port: 443,
-        path: '/' + config.appId + '/subscriptions?access_token=' + config.accessToken,
+        path: '/' + (typeof scope !== 'undefined' ? scope : config.appId) + '/subscriptions?access_token=' + config.accessToken,
         method: 'DELETE'
     }, function(res) {
         var data = "";
@@ -118,10 +118,10 @@ function getAccessToken() {
 }
 
 // Retrieve current subscriptions
-function getSubscriptions(callback) {
+function getSubscriptions(callback, scope) {
     https.get({
         host: FACEBOOK_GRAPH_URL,
-        path: '/' +config.appId + '?access_token=' + getAccessToken()
+        path: '/' + (typeof scope !== 'undefined' ? scope : config.appId) + '?access_token=' + getAccessToken()
     }, function(res) {
         var data = "";
         res.on('data', function(chunk) {

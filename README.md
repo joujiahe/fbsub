@@ -33,6 +33,14 @@ fbsub.authenticate(function(err) {
 });
 ```
 
+#### Unsubscribe
+
+Unsubscribes from all endpoints.
+
+```js
+fbsub.unSubscribe(callback);
+```
+
 #### Provide API for Facebook Verification Callback and Realtime Push
 ```js
 // Sample code is based on express@3.4.8
