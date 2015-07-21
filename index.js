@@ -136,10 +136,11 @@ function getSubscriptions(callback, scope) {
 
 
 // Retrieve feed from specified page
-function getPageFeed(callback, page) {
+function getPageFeed(callback, page, query) {
+    queryString = query !== null ? '&' + querystring.stringify(query) : '';
     https.get({
         host: FACEBOOK_GRAPH_URL,
-        path: '/' + page + '/feed?access_token=' + getAccessToken()
+        path: '/' + page + '/feed?access_token=' + getAccessToken() + queryString
     }, function(res) {
         var data = "";
         res.on('data', function(chunk) {
